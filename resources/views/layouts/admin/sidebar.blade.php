@@ -76,19 +76,19 @@
         </li>
         <!-- News -->
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <a href="{{route('admin.news.index')}}" class="menu-link menu-toggle">
 {{--                <i class="menu-icon tf-icons bx bx-dock-top"></i>--}}
                 <i class='menu-icon tf-icons bx bx-news'></i>
                 <div data-i18n="Account Settings">News</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('admin.news.index')}}" class="menu-link">
                         <div data-i18n="Account">Manage</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('admin.news.create')}}" class="menu-link">
                         <div data-i18n="Notifications">Create</div>
                     </a>
                 </li>
