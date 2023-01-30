@@ -11,8 +11,8 @@ use BenSampo\Enum\Enum;
  */
 final class NewsStatus extends Enum
 {
-    const DEACTIVE =   0;
-    const ACTIVE =   1;
+    const ACTIVE =   "1";
+    const DEACTIVE =   "0";
 
     public static function getStatus($status){
         if (self::DEACTIVE == $status){

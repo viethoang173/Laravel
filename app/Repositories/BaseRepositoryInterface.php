@@ -10,7 +10,7 @@ interface BaseRepositoryInterface
      * @param $id
      * @return mixed
      */
-    public function update($id);
+    public function update($data, $id);
 
     /**
      * @param $id

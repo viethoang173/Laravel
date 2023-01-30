@@ -25,10 +25,10 @@ class NewsStoreRequest extends FormRequest
     {
         return [
             'title' => 'string|required',
-            'thumbnail' => 'string|required',
-            'catogory' => 'integer|required',
+            'thumbnail' => 'required',
+            'category_id' => 'integer|required',
             'content'=> 'string|required',
-            'status'=> 'string'
+            'status'=> 'integer|required'
         ];
     }
 }

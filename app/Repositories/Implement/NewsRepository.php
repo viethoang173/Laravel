@@ -10,4 +10,9 @@ class NewsRepository extends BaseRepository implements INewsRepository
 {
     protected $model_class = News::class;
 
+    public function edit($id)
+    {
+        $record = $this->model->where('id', $id)->get();
+        return $record;
+    }
 }

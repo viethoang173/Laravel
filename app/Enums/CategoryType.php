@@ -12,18 +12,18 @@ use BenSampo\Enum\Enum;
 final class CategoryType extends Enum
 {
     const NEWS = 0;
-    const PTPMUD = 1;
-    const PTTKHT = 2;
+    const NEWS1 = 1;
+    const NEWS2 = 2;
 
     public static function getCatogory($cat){
         if (self::NEWS == $cat){
-            return "Tin tuc";
+            return "Tin tức";
         }
-        elseif (self::PTPMUD == $cat){
-            return "Tin moi";
+        elseif (self::NEWS1 == $cat){
+            return "Tin mới";
         }
-        elseif (self::PTTKHT == $cat){
-            return "Tin ";
+        elseif (self::NEWS2 == $cat){
+            return "Tin hot";
         }
     }
 }

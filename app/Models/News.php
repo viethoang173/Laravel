@@ -12,4 +12,12 @@ class News extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    protected $fillable = [
+        'title',
+        'thumbnail',
+        'content',
+        'category_id',
+        'status'
+    ];
 }

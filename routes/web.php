@@ -21,7 +21,7 @@ Route::group(['prefix' => 'admin'], function (){
     Route::group(['prefix' => 'news'], function (){
         Route::get('',[AdminNewsController::class, 'index'])->name('admin.news.index');
         Route::get('create', [AdminNewsController::class, 'create'])->name('admin.news.create');
-        Route::post('store', [AdminNewsController::class, 'store'])->name('admin.news.create.process');
+        Route::post('create/1', [AdminNewsController::class, 'store'])->name('admin.news.create.process');
         Route::get('edit/{id}', [AdminNewsController::class, 'edit'])->name('admin.news.edit');
         Route::post('edit/{id}', [AdminNewsController::class, 'update'])->name('admin.news.edit.process');
     });

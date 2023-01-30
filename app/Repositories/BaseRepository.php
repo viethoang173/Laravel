@@ -2,12 +2,18 @@
 
 namespace App\Repositories;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Support\Str;
+
 class BaseRepository implements BaseRepositoryInterface
 {
     protected $model_class;
 
     protected $model;
 
+    /**
+     * @throws BindingResolutionException
+     */
     public function __construct()
     {
         if ($this->model_class){
@@ -17,8 +23,10 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function store($data)
     {
-        $result = $this->model->newQuery()->create($data);
-        return $this->model->find($result->id);
+        $record = $this->model->newQuery()->create($data);
+        $record->save();
+        $record->refresh();
+        return $record;
     }
 
     public function update($data, $id)
