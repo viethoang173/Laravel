@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\NewsStatus;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsEditRequest;
 use App\Http\Requests\NewsStoreRequest;
 use App\Models\Category;
 use App\Models\News;
 use App\Services\Interfaces\INewsService;
+use http\Env\Request;
 
 class AdminNewsController extends Controller
 {
@@ -39,9 +41,17 @@ class AdminNewsController extends Controller
 
     public function edit($id){
         $listCategory = Category::all();
+        $newsStatusReflector = new \ReflectionClass('App\Enums\NewsStatus');
         $listNews = $this->newsService->edit($id);
         foreach ($listNews as $item)
 
-        return view('admin.news.edit', compact('item','listCategory'));
+        return view('admin.news.edit')->with(['item'=>$item, 'listCategory'=>$listCategory, 'newsStatus' => $newsStatusReflector->getConstants()]);
+    }
+
+    public function update(NewsEditRequest $request, $id){
+        $validated = $request->validated();
+        $this->newsService->update($validated, $id);
+
+        return redirect(route('admin.news.index'));
     }
 }
