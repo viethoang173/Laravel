@@ -45,5 +45,7 @@ class NewsService implements INewsService
             $data['thumbnail'] = asset('images/'.$realUrl);
         }
         $this->newRepository->update($data, $id);
+        $this->newRepository->update($data, $id);
+        $this->newRepository->update($data, $id);
     }
 }
