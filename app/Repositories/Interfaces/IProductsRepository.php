@@ -2,7 +2,10 @@
 
 namespace App\Repositories\Interfaces;
 
-interface IProductsRepository
+use App\Repositories\BaseRepository;
+use App\Repositories\BaseRepositoryInterface;
+
+interface IProductsRepository extends BaseRepositoryInterface
 {
 
 }

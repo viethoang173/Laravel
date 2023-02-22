@@ -13,4 +13,19 @@ class ProductsService implements IProductsService
     {
         $this->productsRepository= $productsRepository;
     }
+
+    function store($data)
+    {
+        $this->productsRepository->store($data);
+    }
+
+    function edit($id)
+    {
+        // TODO: Implement edit() method.
+    }
+
+    function update($data, $id)
+    {
+        // TODO: Implement update() method.
+    }
 }

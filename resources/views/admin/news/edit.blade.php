@@ -8,7 +8,8 @@
                 <small class="text-muted float-end">Default label</small>
             </div>
             <div class="card-body">
-                <form method="post" action="{{route('admin.news.edit.process', $item->id)}}" enctype="multipart/form-data" autocomplete="off">
+                <form method="post" action="{{route('admin.news.edit.process', $item->id)}}"
+                      enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Title</label>
@@ -17,7 +18,8 @@
                     <div class="mb-3">
                         <label class="form-label" for="">Thumbnail</label>
                         <div class="input-group">
-                            <input type="file" class="form-control" id="inputGroupFile03" value="1" placeholder="sad" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                            <input type="file" class="form-control" id="inputGroupFile03" value="1" placeholder="sad"
+                                   aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                         </div>
                         <img class="d-block m-auto mt-3" src="{{$item->thumbnail}}" alt="" width="500px">
                     </div>
@@ -41,9 +43,10 @@
                             <select class="form-select" name="status" id="status">
                                 @foreach($newsStatus as $status)
                                     @if($status == $item->status)
-                                        <option value="{{$status}}" selected>{{\App\Enums\NewsStatus::getStatus($status)}}</option>
+                                        <option value="{{$status}}"
+                                                selected>{{\App\Enums\Status::getStatus($status)}}</option>
                                     @else
-                                        <option value="{{$status}}">{{\App\Enums\NewsStatus::getStatus($status)}}</option>
+                                        <option value="{{$status}}">{{\App\Enums\Status::getStatus($status)}}</option>
                                     @endif
                                 @endforeach
                             </select>

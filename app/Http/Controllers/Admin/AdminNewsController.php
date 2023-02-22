@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\NewsStatus;
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsEditRequest;
 use App\Http\Requests\NewsStoreRequest;
@@ -26,10 +26,10 @@ class AdminNewsController extends Controller
     }
 
     public function create(){
-        $newsStatusReflector = new \ReflectionClass('App\Enums\NewsStatus');
+        $statusReflector = new \ReflectionClass('App\Enums\Status');
         $listCategory = Category::all();
 
-        return view('admin.news.create')->with(['newsStatus' => $newsStatusReflector->getConstants(), 'listCategory'=> $listCategory]);
+        return view('admin.news.create')->with(['listStatus' => $statusReflector->getConstants(), 'listCategory'=> $listCategory]);
     }
 
     public function store(NewsStoreRequest $request) {
@@ -41,7 +41,7 @@ class AdminNewsController extends Controller
 
     public function edit($id){
         $listCategory = Category::all();
-        $newsStatusReflector = new \ReflectionClass('App\Enums\NewsStatus');
+        $newsStatusReflector = new \ReflectionClass('App\Enums\Status');
         $listNews = $this->newsService->edit($id);
         foreach ($listNews as $item)
 

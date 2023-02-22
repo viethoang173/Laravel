@@ -8,7 +8,8 @@
                 <small class="text-muted float-end">Default label</small>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('admin.news.create.process') }}" enctype="multipart/form-data" autocomplete="off">
+                <form method="post" action="{{ route('admin.news.create.process') }}" enctype="multipart/form-data"
+                      autocomplete="off">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label" for="title">Title</label>
@@ -17,7 +18,8 @@
                     <div class="mb-3">
                         <label class="form-label" for="thumbnail">Thumbnail</label>
                         <div class="input-group">
-                            <input type="file" accept="image/*" class="form-control" name="thumbnail" id="thumbnail" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                            <input type="file" accept="image/*" class="form-control" name="thumbnail" id="thumbnail"
+                                   aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -34,8 +36,8 @@
                         <label class="form-label" for="status">Status</label>
                         <div class="input-group">
                             <select class="form-select" name="status" id="status">
-                                @foreach($newsStatus as $status)
-                                    <option value="{{$status}}">{{\App\Enums\NewsStatus::getStatus($status)}}</option>
+                                @foreach($listStatus as $status)
+                                    <option value="{{$status}}">{{\App\Enums\Status::getStatus($status)}}</option>
                                 @endforeach
                             </select>
                         </div>

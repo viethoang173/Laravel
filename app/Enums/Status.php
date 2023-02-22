@@ -9,7 +9,7 @@ use BenSampo\Enum\Enum;
  * @method static static OptionTwo()
  * @method static static OptionThree()
  */
-final class NewsStatus extends Enum
+final class Status extends Enum
 {
     const ACTIVE =   "1";
     const DEACTIVE =   "0";
