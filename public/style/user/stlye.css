@@ -1,0 +1,17 @@
+.nav-menu{
+    font-size: 16px;
+    font-weight: 600;
+}
+.list-unstyle{
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-menu .nav-link{
+    padding: 16px 12px;
+}
+
+.nav-menu .nav-item{
+}
+
+

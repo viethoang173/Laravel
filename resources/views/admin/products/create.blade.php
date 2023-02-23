@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Thêm mới sản phẩm</h5>
-                    <a href="">Thêm danh mục sản phẩm</a>
+                    <a href="{{route('admin.categories.create')}}">Thêm danh mục sản phẩm</a>
                 </div>
                 <div class="card-body">
                     <form id="formProducts" method="post" action="{{ route('admin.products.create.process') }}" enctype="multipart/form-data" autocomplete="off">

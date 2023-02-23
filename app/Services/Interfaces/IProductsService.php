@@ -9,4 +9,6 @@ interface IProductsService
     function edit($id);
 
     function update($data, $id);
+
+    function destroy($id);
 }

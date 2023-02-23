@@ -10,6 +10,7 @@ use App\Models\ProductsCategory;
 use App\Repositories\Interfaces\IProductsRepository;
 use App\Services\Interfaces\INewsService;
 use App\Services\Interfaces\IProductsService;
+use Illuminate\Support\Facades\DB;
 
 class AdminProductsController extends Controller
 {
@@ -20,7 +21,7 @@ class AdminProductsController extends Controller
         $this->productsService = $productsService;
     }
     public function index(){
-        $products = Products::all();
+        $products = Products::paginate(10);
         return view('admin.products.index', compact('products'));
     }
 
@@ -35,6 +36,13 @@ class AdminProductsController extends Controller
         $validated = $request->validated();
         $this->productsService->store($validated);
 
-        redirect(route('admin.products.index'));
+        return redirect(route('admin.products.index'));
+    }
+
+    public  function delete($id){
+        $product = Products::find($id);
+        $product->delete();
+
+        return redirect(route('admin.products.index'));
     }
 }
